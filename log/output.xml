@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20230906 21:36:34.394" rpa="false" schemaversion="4">
+<suite id="s1" name="Test cases" source="C:\Users\HakanBatirhan\IdeaProjects\RobotFramework_2\tests\Test_cases.robot">
+<test id="s1-t1" name="Product_Test" line="6">
+<kw name="Open Amazon Page" library="AmazonPage">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${AMAZON_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230906 21:36:34.665" level="INFO">Opening browser 'chrome' to base url 'https://amazon.com'.</msg>
+<status status="PASS" starttime="20230906 21:36:34.665" endtime="20230906 21:36:38.558"/>
+</kw>
+<status status="PASS" starttime="20230906 21:36:34.664" endtime="20230906 21:36:38.558"/>
+</kw>
+<kw name="Search Product" library="AmazonPage">
+<arg>${SEARCH_PRODUCT}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${AmazonLocators.SEARCH_BOX}</arg>
+<arg>${product_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230906 21:36:38.561" level="INFO">Typing text 'Robot Framework Test Automation' into text field 'id:twotabsearchtextbox'.</msg>
+<status status="PASS" starttime="20230906 21:36:38.559" endtime="20230906 21:36:38.718"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${AmazonLocators.SEARCH_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230906 21:36:38.719" level="INFO">Clicking element 'id:nav-search-submit-button'.</msg>
+<status status="PASS" starttime="20230906 21:36:38.718" endtime="20230906 21:36:41.029"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${actual}</var>
+<arg>${AmazonLocators.RESULT_TEXT}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230906 21:36:41.072" level="INFO">${actual} = "Robot Framework Test Automation"</msg>
+<status status="PASS" starttime="20230906 21:36:41.029" endtime="20230906 21:36:41.073"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${expected_text}</var>
+<arg>${SEARCH_PRODUCT}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230906 21:36:41.073" level="INFO">${expected_text} = Robot Framework Test Automation</msg>
+<status status="PASS" starttime="20230906 21:36:41.073" endtime="20230906 21:36:41.073"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Actual Text:</arg>
+<arg>${actual}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230906 21:36:41.074" level="FAIL">Invalid log level '"Robot Framework Test Automation"'.</msg>
+<status status="FAIL" starttime="20230906 21:36:41.073" endtime="20230906 21:36:41.074"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${expected_text}</arg>
+<arg>${actual}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" starttime="20230906 21:36:41.074" endtime="20230906 21:36:41.074"/>
+</kw>
+<status status="FAIL" starttime="20230906 21:36:38.559" endtime="20230906 21:36:41.074"/>
+</kw>
+<kw name="Click First Result" library="AmazonPage">
+<status status="NOT RUN" starttime="20230906 21:36:41.075" endtime="20230906 21:36:41.075"/>
+</kw>
+<status status="FAIL" starttime="20230906 21:36:34.663" endtime="20230906 21:36:41.075">Invalid log level '"Robot Framework Test Automation"'.</status>
+</test>
+<status status="FAIL" starttime="20230906 21:36:34.397" endtime="20230906 21:36:41.076"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test cases">Test cases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
